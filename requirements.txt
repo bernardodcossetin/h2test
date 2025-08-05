@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+requests
+time
+f_ICEV_2
