@@ -14,7 +14,7 @@ vehicle_specs = {
     'Onix 2024': {'mass': 1034, 'fuel_eco': 9.3}
 }
 
-df = pd.read_csv('ResultadosGlobais.csv',decimal='.')
+df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\ResultadosGlobais.csv',decimal='.')
 
 def get_ipva_and_fuel_price(df, uf, dolar, exchange):
     al = df.loc[df['UF'] == uf, 'Alíquota IPVA'].values[0]
@@ -48,62 +48,107 @@ def display_metrics(result_ghg, result_tco, exchange): #Adaptação para exibiç
             unsafe_allow_html=True
         )
     if exchange == 'BRL(R$)':
-        custom_metric('GHG', f'{result_ghg[0]:.2f} gCO2eq')
+        custom_metric('GHG', f'{result_ghg[0]:.2f} g CO₂eq')
         st.divider()
-        custom_metric('GHG/km', f'{result_ghg[1]:.2f} gCO2eq/km')
+        custom_metric('GHG/km', f'{result_ghg[1]:.2f} g CO₂eq/km')
         st.divider()
         custom_metric('TCO', f'R$ {result_tco[0]:.2f} (BRL)')
         st.divider()
         custom_metric('LCOD', f'{result_tco[1]:.2f} (BRL/km)')
     else:
-        custom_metric('GHG', f'{result_ghg[0]:.2f} gCO2eq')
+        custom_metric('GHG', f'{result_ghg[0]:.2f} g CO₂eq')
         st.divider()
-        custom_metric('GHG/km', f'{result_ghg[1]:.2f} gCO2eq/km')
+        custom_metric('GHG/km', f'{result_ghg[1]:.2f} g CO₂eq/km')
         st.divider()
         custom_metric('TCO', f'$ {result_tco[0]:.2f} (USD)')
         st.divider()
         custom_metric('LCOD', f'{result_tco[1]:.2f} (USD/km)')    
 
+#configuração da página
 st.set_page_config(layout='wide')
 st.header("ICEV - TCO and GHG")
 st.sidebar.markdown("# ICEV - TCO and GHG")
 
+st.markdown("""
+    <style>
+    /* Opcional: Reduz o espaço entre elementos do sidebar */
+    section[data-testid="stSidebar"] div[data-testid="stVerticalBlock"] {
+        gap: 0.5rem !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+#formulário: lista de erros para armazenar o erro de cada campo e permitir a execução posteriormente com o execute
+#cada campo possui sua própia função de erro que notifica ao usuário o campo a ser preenchido (adaptação para tornar mais visual usando html)
+erros = []
+
 tipo = st.sidebar.selectbox('Ethanol', ['E100','E27']
         )
-    
-veh_cat = st.sidebar.selectbox('Vehicle Category', list(vehicle_specs.keys())
-                               )
+veh_cat = st.sidebar.selectbox('Vehicle Category', list(vehicle_specs.keys()))
 
-veh_cost = st.sidebar.number_input("Vehicle Cost: ",
-                               min_value=0.0,
-                               step=0.01,
-                               format="%.2f"
-                               )
+with st.sidebar.container():
+    veh_cost = st.number_input("Vehicle Cost:", min_value=0.0, step=0.01, format="%.2f", key="veh_cost")
+    if veh_cost <= 0.009:
+        st.markdown("<span style='color:red; font-size:14px;'>Please enter a valid *Vehicle Cost*</span>", unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        div[data-testid="stNumberInput"] input[data-baseweb="input"][aria-label="Vehicle Cost:"] {
+            border: 2px solid red !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        erros.append("Please enter a valid *Vehicle Cost*.")
 
-exchange = st.sidebar.radio('Select the currency:',
-                            ['BRL(R$)','USD($)']
-                            )
-    
+exchange = st.sidebar.radio('Select the currency:', ['BRL(R$)','USD($)'])
+
 fe_pad = st.session_state.get("fe_pad", False)
-fuel_eco = st.sidebar.number_input("Fuel Eco: ",
-                               min_value=0.0,
-                               step=0.01,
-                               format="%.2f",
-                               disabled=fe_pad
-                               )
+with st.sidebar.container():
+    fuel_eco = st.number_input("Fuel Eco:", min_value=0.0, step=0.01, format="%.2f", disabled=fe_pad, key="fuel_eco")
+    if not fe_pad and fuel_eco <= 0.0:
+        st.markdown("<span style='color:red; font-size:14px;'>Please enter a valid *Fuel Economy*</span>", unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        div[data-testid="stNumberInput"] input[data-baseweb="input"][aria-label="Fuel Eco:"] {
+            border: 2px solid red !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        erros.append("Please enter a valid *Fuel Economy*.")
+
 st.sidebar.toggle('Default Fuel Economy', key="fe_pad")
-    
-years = st.sidebar.number_input("Years: ",
-                               min_value=0
-                               )
-    
-yearly_mileage = st.sidebar.number_input("Yearly Mileage: ",
-                               min_value=0
-                               )
 
-uf = st.sidebar.selectbox('UF', df['UF'].unique()
-                         )
+with st.sidebar.container():
+    years = st.number_input("Years:", min_value=0, key="years")
+    if years <= 0:
+        st.markdown("<span style='color:red; font-size:14px;'>Please enter the *Vehicle Lifetime*</span>", unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        div[data-testid="stNumberInput"] input[data-baseweb="input"][aria-label="Years:"] {
+            border: 2px solid red !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        erros.append("Please enter the *Vehicle Lifetime*.")
 
+with st.sidebar.container():
+    yearly_mileage = st.number_input("Yearly Mileage:", min_value=0, key="mileage")
+    if yearly_mileage <= 0:
+        st.markdown("<span style='color:red; font-size:14px;'>Please enter the *Annual Mileage*</span>", unsafe_allow_html=True)
+        st.markdown("""
+        <style>
+        div[data-testid="stNumberInput"] input[data-baseweb="input"][aria-label="Yearly Mileage:"] {
+            border: 2px solid red !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        erros.append("Please enter the *Annual Mileage*.")
+
+uf = st.sidebar.selectbox('UF', df['UF'].unique())
+
+if erros:
+    st.info("Fill all required fields to enable analysis.")
+
+#busca os valores
 al = df.loc[df['UF'] == uf, 'Alíquota IPVA'].values[0]
 fp = df.loc[df['UF'] == uf, 'Fuel Price'].values[0]
 
@@ -115,23 +160,7 @@ ghg_fuel_e = get_ghg_fuel(tipo, uf, df)
 W = vehicle_specs[veh_cat]['mass']
 if fe_pad:
     fuel_eco = vehicle_specs[veh_cat]['fuel_eco']
-
-erros = []
-
-if veh_cost <= 0.009:
-    erros.append("Please enter a valid *Vehicle Cost*.")
-if fuel_eco <= 0.0:
-    erros.append("Please enter a valid *Fuel Economy*.")
-if years < 0:
-    erros.append("Please enter the *Vehicle Lifetime*.")
-if yearly_mileage < 0:
-    erros.append("Please enter the *Annual Mileage*.")
-
-if erros:
-    for erro in erros:
-        st.warning(erro)
-    st.info("Fill all required fields to enable analysis.")
-    
+#permite a execução/libera o potão de execução
 execute = (len(erros)==0)
 
 if st.sidebar.button('Apply',disabled=not execute):
@@ -143,9 +172,9 @@ if st.sidebar.button('Apply',disabled=not execute):
                                    'Values':[tipo,veh_cat,veh_cost,W,fuel_eco,uf,fp]
                                    })
     result_ghg = GHG_ICEV(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e)
-    result_tco = TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp, r=0.1, dr=0.0641, ins=0.06)
+    result_tco = TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp)
     ghg_anos = GHG_ICEV_ac(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e)
-    col_gp, col_df = st.columns([2.8, 1], border=True)
+    col_gp, col_df = st.columns([3.5, 1], border=True)
     with col_df:
         st.header('Results')
         st.divider()
@@ -161,8 +190,8 @@ if st.sidebar.button('Apply',disabled=not execute):
 
     fig.update_layout(
         title=dict(text="GHG Acumulado", font=dict(size=30, family="Arial")),
-        xaxis=dict(title=dict(text='Ano', font=dict(size=20))),
-        yaxis=dict(title=dict(text='GHG total (kg CO₂e)', font=dict(size=20))),
+        xaxis=dict(title=dict(text='Ano', font=dict(size=20)),  tickfont=dict(size=16)),
+        yaxis=dict(title=dict(text='GHG total (g CO₂eq)', font=dict(size=20)), tickformat=',',  tickfont=dict(size=16)),
         width=1200,
         height=700,
         hovermode='x unified'
@@ -185,5 +214,4 @@ if st.session_state.executou:
 
 
     
-
     
