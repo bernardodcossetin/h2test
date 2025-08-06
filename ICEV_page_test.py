@@ -189,7 +189,7 @@ if st.sidebar.button('Apply',disabled=not execute):
         ))
 
     fig.update_layout(
-        title=dict(text="GHG Acumulado", font=dict(size=30, family="Arial")),
+        title=dict(text="GHG Ac", font=dict(size=30, family="Arial")),
         xaxis=dict(title=dict(text='Ano', font=dict(size=20)),  tickfont=dict(size=16)),
         yaxis=dict(title=dict(text='GHG total (g CO₂eq)', font=dict(size=20)), tickformat=',',  tickfont=dict(size=16)),
         width=1200,
@@ -216,3 +216,4 @@ if st.session_state.executou:
     
 
     
+
