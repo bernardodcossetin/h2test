@@ -233,7 +233,7 @@ if st.sidebar.button('Apply',disabled=not execute):
         xaxis=dict(title=dict(text='Year', font=dict(size=20)), tickfont=dict(size=16)),
         yaxis=dict(title=dict(text='GHG Emissions (g CO₂eq)', font=dict(size=20)), tickformat=',.0f', tickfont=dict(size=16)),
         width=1200,
-        height=600,
+        height=650,
         hovermode='x unified'
     )
     
@@ -250,7 +250,7 @@ if st.sidebar.button('Apply',disabled=not execute):
         xaxis=dict(title=dict(text='Ano', font=dict(size=20)), tickfont=dict(size=16)),
         yaxis=dict(title=dict(text=f'Total Cost of Ownership {simbol}', font=dict(size=20)), tickformat=',.0f', tickfont=dict(size=16)),
         width=1200,
-        height=600,
+        height=650,
         hovermode='x unified'
     )
     
@@ -283,5 +283,6 @@ if st.session_state.executou:
     
 
     
+
 
 
