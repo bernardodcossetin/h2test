@@ -1,5 +1,3 @@
-import pandas as pd
-
 def GHG_ICEV(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e):
     GHG_vehicle=4.56*(10**3)*W
     GHG_recycling=-2.93*(10**3)*W
@@ -8,7 +6,7 @@ def GHG_ICEV(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e):
     GHG=GHG_vehicle+GHG_recycling+GHG_fuel*years
     GHG_km=GHG/(years*yearly_mileage)
 
-    return [GHG, GHG_km, ghg_fuel_e] #gCO2eq, gCO2eq/km
+    return [GHG, GHG_km, ghg_fuel_e] 
 
 def TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp, r=0.1, dr=0.0641, ins=0.06):
     C_vehicle=veh_cost
@@ -27,7 +25,6 @@ def TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp, r=0.1, dr=0.
          V_venal = float(V_venal)
          C_insurance = V_venal * ins
          C_taxes = V_venal * al
-        # Custo total anual descontado
          fator_desc = 1 / (1 + r)**i
          soma_fuel += C_fuel * fator_desc
          soma_maint += C_maintenance * fator_desc
@@ -38,7 +35,6 @@ def TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp, r=0.1, dr=0.
     LCOD=TCO/soma_q
 
     return [TCO, LCOD]
-           #USD, USD/km
 
 def GHG_ICEV_ac(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e):
     GHG_vehicle = 4.56e3 * W
@@ -52,11 +48,26 @@ def GHG_ICEV_ac(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e):
 
     return [ghg_acumulado]
 
+def TCO_ICEV_ac(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp):
+    r = 0.1
+    dr = 0.0641
+    ins = 0.06
+    C_vehicle = veh_cost
+    C_maintenance = 160
+    consumo_anual = yearly_mileage / fuel_eco
+    C_fuel = fp * consumo_anual
+    TCO_acumulado = []
+    TCO = C_vehicle  
+    for i in range(1, years + 1):
+        V_venal = veh_cost * (1 - dr) ** i
+        C_insurance = V_venal * ins
+        C_taxes = V_venal * al
+        fator_desc = 1 / (1 + r) ** i
+        custo_anual = (C_maintenance + C_fuel + C_insurance + C_taxes) * fator_desc
+        TCO += custo_anual
+        TCO_acumulado.append(TCO)
 
-#df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\ResultadosGlobais.csv',decimal='.')
-#uf='AL'
-#al = df.loc[df['UF'] == uf, 'Alíquota IPVA'].values[0]
-#fp = df.loc[df['UF'] == uf, 'Fuel Price'].values[0]/4.98
-#a=GHG_ICEV('E100',12900,9.3,1034,20)
-#b=TCO_ICEV(16969,12900,9.3,20,al, uf, fp,0.1,0.0641,0.06)
+    return [TCO_acumulado]
+
+
 
