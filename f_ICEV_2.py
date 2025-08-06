@@ -49,9 +49,9 @@ def GHG_ICEV_ac(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e):
     return [ghg_acumulado]
 
 def TCO_ICEV_ac(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp):
-    r = 0.1
-    dr = 0.0641
-    ins = 0.06
+    r = 0.1          
+    dr = 0.0641      
+    ins = 0.06       
     C_vehicle = veh_cost
     C_maintenance = 160
     consumo_anual = yearly_mileage / fuel_eco
@@ -65,6 +65,10 @@ def TCO_ICEV_ac(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp):
         fator_desc = 1 / (1 + r) ** i
         custo_anual = (C_maintenance + C_fuel + C_insurance + C_taxes) * fator_desc
         TCO += custo_anual
+        if i == years:
+            C_resale = -veh_cost * (1 - dr) ** years
+            TCO += C_resale / (1 + r) ** years
+
         TCO_acumulado.append(TCO)
 
     return [TCO_acumulado]
