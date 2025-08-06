@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from f_ICEV_2 import GHG_ICEV, TCO_ICEV, GHG_ICEV_ac
+from f_ICEV_2 import GHG_ICEV, TCO_ICEV, GHG_ICEV_ac, TCO_ICEV_ac
 import requests
 import plotly.graph_objects as go
 import time
@@ -213,30 +213,58 @@ if st.sidebar.button('Apply',disabled=not execute):
     result_ghg = GHG_ICEV(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e)
     result_tco = TCO_ICEV(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp)
     ghg_anos = GHG_ICEV_ac(tipo, yearly_mileage, fuel_eco, W, years, ghg_fuel_e)
-    col_gp, col_df = st.columns([3.5, 1], border=True)
-    with col_df:
-        st.header('Results')
-        st.divider()
-        display_metrics(result_ghg, result_tco, exchange)
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
+    tco_anos = TCO_ICEV_ac(veh_cost, yearly_mileage, fuel_eco, years, al, uf, fp)
+    
+    if exchange == 'BRL(R$)':
+        simbol = 'BRL(R$)'
+    else:
+        simbol = 'USD($)'
+    
+    fig_ghg = go.Figure()
+    fig_ghg.add_trace(go.Scatter(
         x=list(range(1, years + 1)),
         y=ghg_anos[0],
         mode='lines+markers',
         name='GHG acumulado',
         line=dict(color='red')
-        ))
-
-    fig.update_layout(
-        title=dict(text="GHG Acumulado", font=dict(size=30, family="Arial")),
-        xaxis=dict(title=dict(text='Ano', font=dict(size=20)),  tickfont=dict(size=16)),
-        yaxis=dict(title=dict(text='GHG total (g CO₂eq)', font=dict(size=20)), tickformat=',',  tickfont=dict(size=16)),
+    ))
+    fig_ghg.update_layout(
+        title=dict(text="GHG Emissions Over Time", font=dict(size=26, family="Arial")),
+        xaxis=dict(title=dict(text='Year', font=dict(size=20)), tickfont=dict(size=16)),
+        yaxis=dict(title=dict(text='GHG Emissions (g CO₂eq)', font=dict(size=20)), tickformat=',.0f', tickfont=dict(size=16)),
         width=1200,
         height=700,
         hovermode='x unified'
-        )
+    )
+    
+    fig_tco = go.Figure()
+    fig_tco.add_trace(go.Scatter(
+        x=list(range(1, years + 1)),
+        y=tco_anos[0],
+        mode='lines+markers',
+        name='TCO acumulado',
+        line=dict(color='red')
+    ))
+    fig_tco.update_layout(
+        title=dict(text="Cumulative Total Cost of Ownership", font=dict(size=26, family="Arial")),
+        xaxis=dict(title=dict(text='Ano', font=dict(size=20)), tickfont=dict(size=16)),
+        yaxis=dict(title=dict(text=f'Total Cost of Ownership {simbol}', font=dict(size=20)), tickformat=',.0f', tickfont=dict(size=16)),
+        width=1200,
+        height=700,
+        hovermode='x unified'
+    )
+    
+    col_gp, col_df = st.columns([3.5, 1], border=True)
+    with col_df:
+        st.header('Results')
+        st.divider()
+        display_metrics(result_ghg, result_tco, exchange)
     with col_gp:
-        st.plotly_chart(fig, use_container_width=True)
+        tab1, tab2 = st.tabs(['GHG', 'TCO'])
+        with tab1:
+            st.plotly_chart(fig_ghg, use_container_width=True)
+        with tab2:
+            st.plotly_chart(fig_tco, use_container_width=True)
     with st.expander('See the input values used.'):
         st.dataframe(parametros, hide_index=True)
  
@@ -255,3 +283,4 @@ if st.session_state.executou:
     
 
     
+
