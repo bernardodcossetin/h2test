@@ -14,7 +14,7 @@ vehicle_specs = {
     'Onix 2024': {'mass': 1034, 'fuel_eco': 9.3}
 }
 
-df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_ET.csv',decimal='.')
+df = pd.read_csv('inputs_ET.csv',decimal='.')
 
 def get_ipva_and_fuel_price(df, uf, dolar, exchange):
     al = df.loc[df['UF'] == uf, 'al'].values[0]
@@ -400,4 +400,5 @@ if st.session_state.executou:
 
 
     
+
     
