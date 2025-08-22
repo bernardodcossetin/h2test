@@ -14,7 +14,7 @@ vehicle_specs = {
     'TESTE': {'mass': 977, 'fuel_eco': 0.1233}
 }
 
-df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_EV.csv',decimal='.')
+df = pd.read_csv('inputs_EV.csv',decimal='.')
 
 def get_dolar(): 
     resp = requests.get("https://economia.awesomeapi.com.br/json/last/USD-BRL")
@@ -408,3 +408,4 @@ if st.session_state.executou:
 
     
     
+
