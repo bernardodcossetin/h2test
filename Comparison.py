@@ -186,7 +186,7 @@ else:
                     'Onix 2024': {'mass': 1034, 'fuel_eco': 9.3}
                 }
                 fuel_options = ['E100', 'E27']
-                df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_ET.csv', decimal='.')
+                df = pd.read_csv('inputs_ET.csv', decimal='.')
     
             elif category == 'EV':
                 vehicle_specs = {
@@ -198,7 +198,7 @@ else:
                     'TESTE': {'mass': 977, 'fuel_eco': 0.1233}
                 }
                 fuel_options = ['BEV']
-                df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_EV.csv', decimal='.')
+                df = pd.read_csv('inputs_EV.csv', decimal='.')
     
             else:  # FCEV
                 vehicle_specs = {
@@ -210,7 +210,7 @@ else:
                     'Toyota Mirai 2023': {'mass': 1900, 'fuel_eco': 122}
                 }
                 fuel_options = ['H2']
-                df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_H2.csv', decimal='.')
+                df = pd.read_csv('inputs_H2.csv', decimal='.')
 
             tipo = input_with_tooltip(
                 "Type", "Fuel type.",
@@ -391,4 +391,5 @@ if 'ultima_moeda' not in st.session_state:
 
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
+
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")
