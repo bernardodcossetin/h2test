@@ -55,7 +55,7 @@ def GHG_BEV(W, yearly_mileage, fuel_eco, years, ghg_kwh, veh_bat_cap):
     prod_emissions = W * p_veh + veh_bat_cap * p_bat + extra_bat * veh_bat_cap * p_bat
     rec_emissions = W * r_veh + veh_bat_cap * r_bat + extra_bat * veh_bat_cap * r_bat
     ghg_ac = []
-    for y in range(1, years + 1):
+    for y in range(0, years + 1):
         uti_emissions = y * yearly_mileage * ghg_kwh * fuel_eco / (1 - grid_losses)
         total_emissions = (prod_emissions + uti_emissions + rec_emissions)/10**6
         ghg_ac.append(total_emissions)
@@ -160,4 +160,5 @@ def TCO_FCEV(veh_cost, yearly_mileage, fuel_eco, years, fp, al, exchange, dolar)
 
 
     return [np.array(TCO),np.array(LCOD),TCO_acumulado]
+
 
