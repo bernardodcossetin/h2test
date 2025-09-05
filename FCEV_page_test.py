@@ -14,7 +14,7 @@ vehicle_specs = {
     'Toyota Mirai 2023': {'mass': 1900, 'fuel_eco': 122}
 }
 
-df = pd.read_csv(r'C:\Users\bernardo.cossetin\Desktop\ProjetoH2\App_H2\inputs_H2.csv',decimal='.')
+df = pd.read_csv('inputs_H2.csv',decimal='.')
 
 def get_ipva_and_fuel_price(df, uf, dolar, exchange):
     al = df.loc[df['UF'] == uf, 'al'].values[0]
@@ -381,3 +381,4 @@ if 'ultima_moeda' not in st.session_state:
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")    
+
