@@ -11,9 +11,10 @@ pages={
         st.Page("Comparison.py", title = "Comparison"),
     ]  
 }
-pg = st.navigation([home_page,page_1,page_2,page_3,page_4])
+pg = st.navigation(pages)
 
 pg.run()
 
 
 # iniciação: prompt => streamlit run app.py
+
