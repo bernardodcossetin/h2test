@@ -10,7 +10,7 @@ st.markdown(
             font-size: 30px;
             font-weight: bold;
             color: white;
-            padding: 25px 20px 0px 20px;
+            padding: 25px 10px 0px 20px;
             margin-bottom: 10px;
         }
     </style>
@@ -32,6 +32,7 @@ pg.run()
 
 
 # iniciação: prompt => streamlit run app.py
+
 
 
 
