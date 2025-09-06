@@ -4,14 +4,14 @@ import streamlit as st
 st.markdown(
     """
     <style>
-        [data-testid="stSidebar"]::before {
+        [data-testid="stSidebarNav"]::before {
             content: "TCO and GHG Analysis";
             display: block;
             font-size: 30px;
             font-weight: bold;
             color: white;
             padding: 25px 20px 0px 20px;
-            margin-bottom: -60px;
+            margin-bottom: 10px;
         }
     </style>
     """,
@@ -32,5 +32,6 @@ pg.run()
 
 
 # iniciação: prompt => streamlit run app.py
+
 
 
