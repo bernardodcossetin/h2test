@@ -137,7 +137,7 @@ def GHG_FCEV(tipo, yearly_mileage, fuel_eco, W, years):
     elif tipo == 'PV H2':
         LHV = 54 
         d = 1
-        wtw = 5.4 
+        wtw = (5.4 / LHV) * 1000
     consumo_anual = yearly_mileage / fuel_eco
     GHG_fuel_ano = consumo_anual * LHV * d * wtw
     ghg_acumulado = []
@@ -188,6 +188,7 @@ def TCO_FCEV(veh_cost, yearly_mileage, fuel_eco, years, fp, al, exchange, dolar)
 
 
     return [np.array(TCO),np.array(LCOD),TCO_acumulado]
+
 
 
 
