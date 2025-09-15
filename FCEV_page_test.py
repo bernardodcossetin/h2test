@@ -16,13 +16,6 @@ vehicle_specs = {
 
 df = pd.read_csv('inputs_H2.csv',decimal='.')
 
-def get_ipva_and_fuel_price(df, uf, dolar, exchange):
-    al = df.loc[df['UF'] == uf, 'al'].values[0]
-    fp = df.loc[df['UF'] == uf, 'fp'].values[0]
-    if exchange == 'BRL(R$)':
-        fp = fp * dolar
-    return al, fp
-
 def get_dolar(): 
     resp = requests.get("https://economia.awesomeapi.com.br/json/last/USD-BRL")
     return float(resp.json()['USDBRL']['bid'])
@@ -168,7 +161,7 @@ with st.sidebar.container():
         </div>
     </div>
     """, unsafe_allow_html=True)
-    tipo = st.sidebar.selectbox("", ['H2'])
+    tipo = st.sidebar.selectbox("", ['H2','PV H2'])
     
 with st.sidebar.container():
     st.markdown("""
@@ -296,11 +289,14 @@ with st.sidebar.container():
 if erros:
     st.info("Fill all required fields to enable analysis.")
 
-al = df.loc[df['UF'] == uf, 'al'].values[0]
-fp = df.loc[df['UF'] == uf, 'fp'].values[0]
+if tipo == 'H2':
+    al = df.loc[df['UF'] == uf, 'al'].values[0]
+    fp = df.loc[df['UF'] == uf, 'fp'].values[0]
+else:
+    al = df.loc[df['UF'] == uf, 'al'].values[0]
+    fp = df.loc[df['UF'] == uf, 'fp_pv'].values[0]
 
 dolar = 4.98 #get_dolar()
-al, fp = get_ipva_and_fuel_price(df, uf, dolar, exchange)
 
 W = vehicle_specs[veh_cat]['mass']
 if fe_pad:
@@ -381,4 +377,5 @@ if 'ultima_moeda' not in st.session_state:
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")    
+
 
