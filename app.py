@@ -18,7 +18,7 @@ st.markdown(
             content: "";
             display: block;
             height: 100px;  
-            margin: -15px auto 30px auto;
+            margin: -20px auto 30px auto;
             background-image: url("data:image/png;base64,{img_base64}");
             background-size: contain;
             background-repeat: no-repeat;
@@ -45,6 +45,7 @@ pg = st.navigation(pages)
 
 
 pg.run()
+
 
 
 
