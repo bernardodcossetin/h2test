@@ -17,7 +17,7 @@ st.markdown(
         [data-testid="stSidebarNav"]::before {{
             content: "";
             display: block;
-            height: 90px;  
+            height: 100px;  
             margin: -25px auto 30px auto;
             background-image: url("data:image/png;base64,{img_base64}");
             background-size: contain;
@@ -45,6 +45,7 @@ pg = st.navigation(pages)
 
 
 pg.run()
+
 
 
 
