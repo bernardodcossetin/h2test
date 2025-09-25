@@ -35,12 +35,13 @@ st.logo("CNPq.png",size="small",icon_image="logo.png")
 pages={
     "Home Page": [st.Page("Home.py", title = "Home Page"),],
     "Modes": [
-        st.Page("ICEV_page_test.py", title = "ICEV - TCO and GHG"),
-        st.Page("BEV_page_test.py", title = "BEV - TCO and GHG"),
-        st.Page("FCEV_page_test.py", title = "FCEV - TCO and GHG"),
+        st.Page("ICEV_page.py", title = "ICEV - TCO and GHG"),
+        st.Page("BEV_page.py", title = "BEV - TCO and GHG"),
+        st.Page("FCEV_page.py", title = "FCEV - TCO and GHG"),
         st.Page("Comparison.py", title = "Comparison"),
     ]  
 }
 pg = st.navigation(pages)
+
 
 pg.run()
