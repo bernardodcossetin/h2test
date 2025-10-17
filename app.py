@@ -37,12 +37,13 @@ pages={
              st.Page("WebInterface.py", title = "Using Web Interface"),
              st.Page("ModelOverview.py", title = "Model Overview")],
     "Modes": [
-        st.Page("ICEV_page_test.py", title = "ICEV - TCO and GHG"),
-        st.Page("BEV_page_test.py", title = "BEV - TCO and GHG"),
-        st.Page("FCEV_page_test.py", title = "FCEV - TCO and GHG"),
+        st.Page("ICEV_page.py", title = "ICEV - TCO and GHG"),
+        st.Page("BEV_page.py", title = "BEV - TCO and GHG"),
+        st.Page("FCEV_page.py", title = "FCEV - TCO and GHG"),
         st.Page("Comparison.py", title = "Comparison"),
     ]  
 }
 pg = st.navigation(pages)
+
 
 pg.run()
