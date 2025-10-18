@@ -207,7 +207,7 @@ with st.sidebar.container():
     fe_pad = st.session_state.get("fe_pad", False)
     st.markdown("""
     <div style='font-size:16px; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:-25px;'>
-        Fuel Eco (kwh/km)
+        Fuel Eco (kWh/km)
         <div class="tooltip-container">ⓘ
             <div class="tooltip-text">Energy consumption in kilometers per kilowatt-hour.</div>
         </div>
@@ -398,3 +398,4 @@ if st.session_state.executou:
 
     
     
+
