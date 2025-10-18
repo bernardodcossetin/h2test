@@ -268,10 +268,7 @@ with st.sidebar.container():
     bat_cap_pad = st.session_state.get("bat_cap_pad", False)
     st.markdown("""
     <div style='font-size:16px; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:-25px;'>
-        Battery Capacity
-        <div class="tooltip-container">ⓘ
-            <div class="tooltip-text">Battery Capacity in Kwh.</div>
-        </div>
+        Battery Capacity (kWh)
     </div>
     """, unsafe_allow_html=True)
     
@@ -395,5 +392,6 @@ if st.session_state.executou:
 
     
     
+
 
 
