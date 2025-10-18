@@ -248,10 +248,7 @@ with st.sidebar.container():
 with st.sidebar.container():
     st.markdown("""
     <div style='font-size:16px; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:-25px;'>
-        Yearly mileage
-        <div class="tooltip-container">ⓘ
-            <div class="tooltip-text">Number of kilometers driven per year.</div>
-        </div>
+        Yearly mileage (kilometers per year)
     </div>
     """, unsafe_allow_html=True)
     
@@ -365,3 +362,4 @@ if 'ultima_moeda' not in st.session_state:
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")    
+
