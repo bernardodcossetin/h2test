@@ -248,10 +248,7 @@ with st.sidebar.container():
 with st.sidebar.container():
     st.markdown("""
     <div style='font-size:16px; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:-25px;'>
-        Yearly mileage
-        <div class="tooltip-container">ⓘ
-            <div class="tooltip-text">Number of kilometers driven per year.</div>
-        </div>
+        Yearly mileage (kilometers per year)
     </div>
     """, unsafe_allow_html=True)
     
@@ -398,4 +395,5 @@ if st.session_state.executou:
 
     
     
+
 
