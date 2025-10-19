@@ -53,13 +53,13 @@ with tabs[1]:
                 This field represents the vehicle’s purchase cost and includes a currency selector.  
                 It is important to ensure that the entered cost matches the selected currency to avoid inconsistencies in the results.  
                 ''')
-    st.image('Side-bar7.png', width=600)
+    st.image('Side-bar7.png', width=300)
     st.markdown('''**Fuel Eco**:  
                 In the fuel economy field, the measurement unit displayed next to the field title depends on the selected vehicle type:  
                 km/L for ICEV, kWh/km for BEV, and kg/km for FCEV.  
                 If desired, users can choose to apply the default fuel economy value provided by the system.  
                 ''')
-    st.image('Side-bar8.png', width=600)
+    st.image('Side-bar8.png', width=700)
     st.markdown('''**Years**:  
                 This field defines the **vehicle’s lifetime**, which can be adjusted using the slider from 1 to 20 years.  
                 ''')
@@ -77,6 +77,7 @@ with tabs[1]:
                 A default value for this parameter is also available in our database.   
                 ''')
     st.image('Side-bar12.png', width=300)
+
 
 
 
