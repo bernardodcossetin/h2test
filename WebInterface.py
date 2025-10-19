@@ -35,20 +35,20 @@ with tabs[1]:
                 When a user enters a value and then activates the toggle to use the default value associated with that field, the field becomes unavailable for editing.  
                 The displayed value remains visible, but the calculation will consider the default value instead.
                 ''')
-    st.image('Side-bar4.png', width=600)
+    st.image('Side-bar4.png', width=500)
     st.markdown('''**Type**:  
                 This field allows you to select the type of fuel used by the vehicle for the analysis.  
                 For ICEV (Internal Combustion Engine Vehicle), the options are **E27** and **E100**, corresponding to gasoline and ethanol, respectively.  
                 For BEV (Battery Electric Vehicle), the available options are **BEV** and **BEV with PV** (photovoltaic system).  
                 For FCEV (Fuel Cell Electric Vehicle), the options are **FCEV** and **FCEV with PV**.  
                 ''')
-    st.image('Side-bar5.png', width=600)
+    st.image('Side-bar5.png', width=500)
     st.markdown('''**Category**:  
                 In this field, you can select the vehicle category or a specific model to be analyzed.  
                 The generic categories (Compact, Sub-compact, Large, etc.) contain average information about the vehicles in our database that belong to each category.  
                 Selecting a category or a specific vehicle also allows you to use default parameter values from our database for the calculations.  
                 ''')
-    st.image('Side-bar6.png', width=600)
+    st.image('Side-bar6.png', width=500)
     st.markdown('''**Vehicle Cost**:  
                 This field represents the vehicle’s purchase cost and includes a currency selector.  
                 It is important to ensure that the entered cost matches the selected currency to avoid inconsistencies in the results.  
@@ -59,7 +59,7 @@ with tabs[1]:
                 km/L for ICEV, kWh/km for BEV, and kg/km for FCEV.  
                 If desired, users can choose to apply the default fuel economy value provided by the system.  
                 ''')
-    st.image('Side-bar8.png', width=700)
+    st.image('Side-bar8.png', width=800)
     st.markdown('''**Years**:  
                 This field defines the **vehicle’s lifetime**, which can be adjusted using the slider from 1 to 20 years.  
                 ''')
@@ -77,6 +77,7 @@ with tabs[1]:
                 A default value for this parameter is also available in our database.   
                 ''')
     st.image('Side-bar12.png', width=300)
+
 
 
 
