@@ -36,47 +36,48 @@ with tabs[1]:
                 The displayed value remains visible, but the calculation will consider the default value instead.
                 ''')
     st.image('Side-bar4.png')
-    st.markdown('''Type:  
+    st.markdown('''**Type**:  
                 This field allows you to select the type of fuel used by the vehicle for the analysis.  
-                For ICEV (Internal Combustion Engine Vehicle), the options are E27 and E100, corresponding to gasoline and ethanol, respectively.  
-                For BEV (Battery Electric Vehicle), the available options are BEV and BEV with PV (photovoltaic system).  
-                For FCEV (Fuel Cell Electric Vehicle), the options are FCEV and FCEV with PV.  
+                For ICEV (Internal Combustion Engine Vehicle), the options are **E27** and **E100**, corresponding to gasoline and ethanol, respectively.  
+                For BEV (Battery Electric Vehicle), the available options are **BEV** and **BEV with PV** (photovoltaic system).  
+                For FCEV (Fuel Cell Electric Vehicle), the options are **FCEV** and **FCEV with PV**.  
                 ''')
-    st.image('Side-bar5.png')
-    st.markdown('''Category:  
+    st.image('Side-bar5.png', width=30px)
+    st.markdown('''**Category**:  
                 In this field, you can select the vehicle category or a specific model to be analyzed.  
                 The generic categories (Compact, Sub-compact, Large, etc.) contain average information about the vehicles in our database that belong to each category.  
                 Selecting a category or a specific vehicle also allows you to use default parameter values from our database for the calculations.  
                 ''')
     st.image('Side-bar6.png')
-    st.markdown('''Vehicle Cost:  
+    st.markdown('''**Vehicle Cost**:  
                 This field represents the vehicle’s purchase cost and includes a currency selector.  
                 It is important to ensure that the entered cost matches the selected currency to avoid inconsistencies in the results.  
                 ''')
     st.image('Side-bar7.png')
-    st.markdown('''Fuel Eco:  
+    st.markdown('''**Fuel Eco**:  
                 In the fuel economy field, the measurement unit displayed next to the field title depends on the selected vehicle type:  
                 km/L for ICEV, kWh/km for BEV, and kg/km for FCEV.  
                 If desired, users can choose to apply the default fuel economy value provided by the system.  
                 ''')
     st.image('Side-bar8.png')
-    st.markdown('''Years:  
-                This field defines the vehicle’s lifetime, which can be adjusted using the slider from 1 to 20 years.  
+    st.markdown('''**Years**:  
+                This field defines the **vehicle’s lifetime**, which can be adjusted using the slider from 1 to 20 years.  
                 ''')
     st.image('Side-bar9.png')
-    st.markdown('''Yearly Mileage:  
-                This field indicates the total distance driven by the vehicle per year, measured in kilometers.  
+    st.markdown('''**Yearly Mileage**:  
+                This field indicates the total distance driven by the vehicle per year, measured in **kilometers**.  
                 ''')
     st.image('Side-bar10.png')
-    st.markdown('''UF:
-                This field allows you to select the Brazilian federative unit (state) to include regional variables such as fuel price and IPVA tax rate in the analysis. 
+    st.markdown('''**UF**:
+                This field allows you to select the **Brazilian federative unit** (state) to include regional variables such as fuel price and IPVA tax rate in the analysis. 
                 ''')
     st.image('Side-bar11.png')
-    st.markdown('''Battery Capacity:  
-                This field represents the battery capacity of the electric vehicle.  
+    st.markdown('''**Battery Capacity**:  
+                This field represents the battery capacity of the **electric vehicle**.  
                 A default value for this parameter is also available in our database.   
                 ''')
     st.image('Side-bar12.png')
+
 
 
 
