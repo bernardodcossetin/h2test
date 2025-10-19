@@ -85,7 +85,8 @@ with tabs[2]:
                 The comparison function offers multiple possibilities to compare different vehicle types with different fuel options. The usage and data entry process are essentially the same as in the individual analysis pages.  
 
                 The main difference lies in how the forms are arranged on the screen.  
-                In addition, since the purpose of this page is to compare multiple vehicles, the selected currency applies to all values across all vehicles.'''  
+                In addition, since the purpose of this page is to compare multiple vehicles, the selected currency applies to all values across all vehicles.''')  
+
 
 
 
