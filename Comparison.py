@@ -378,7 +378,7 @@ else:
                     fuel_eco_labels = {
                         'ICEV with Ethanol': ("Fuel Eco (km/L)", "Fuel economy in kilometers per liter."),
                         'ICEV with Gasoline': ("Fuel Eco (km/L)", "Fuel economy in kilometers per liter."),
-                        'BEV': ("Energy Consumption (kWh/km)", "Energy consumption in kilometers per kilowatt-hour."),
+                        'BEV': ("Fuel Eco (kWh/km)", "Energy consumption in kilowatt-hour per kilometer."),
                         'FCEV': ("Fuel Eco (km/kg H₂)", "Fuel economy in kilometers per kilogram of hydrogen."),
                         'FCEV with PV': ("Fuel Eco (km/kg H₂)", "Fuel economy in kilometers per kilogram of hydrogen.")}
                     label, tip = fuel_eco_labels[category]
@@ -620,3 +620,4 @@ if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
 
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")
+
