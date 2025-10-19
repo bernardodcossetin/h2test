@@ -64,14 +64,19 @@ with tabs[1]:
                 This field defines the vehicle’s lifetime, which can be adjusted using the slider from 1 to 20 years.  
                 ''')
     st.image('Side-bar9.png')
+    st.markdown('''Yearly Mileage:  
+                This field indicates the total distance driven by the vehicle per year, measured in kilometers.  
+                ''')
+    st.image('Side-bar10.png')
     st.markdown('''UF:
                 This field allows you to select the Brazilian federative unit (state) to include regional variables such as fuel price and IPVA tax rate in the analysis. 
                 ''')
-    st.image('Side-bar10.png')
+    st.image('Side-bar111.png')
     st.markdown('''Battery Capacity:  
                 This field represents the battery capacity of the electric vehicle.  
                 A default value for this parameter is also available in our database.   
                 ''')
-    st.image('Side-bar11.png')
+    st.image('Side-bar12.png')
+
 
 
