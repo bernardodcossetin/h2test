@@ -216,7 +216,7 @@ with st.sidebar.container():
                         """, unsafe_allow_html=True)          
     main_filter_comparison = st.sidebar.multiselect(
             "",
-            ["ICEV with Ethanol", "ICEV with Gasoline", "BEV", "FCEV", "FCEV with PV"])
+            ["ICEV with Ethanol", "ICEV with Gasoline", "BEV", "BEV with PV", "FCEV", "FCEV with PV"])
     
 with st.sidebar.container():
     st.markdown("""
@@ -273,6 +273,7 @@ category_styles = {
     "ICEV with Ethanol": {"bg": "#E4E4E4", "border": "#223067"},
     "ICEV with Gasoline": {"bg": "#E4E4E4", "border": "#223067"},
     "BEV": {"bg": "#E4E4E4", "border": "#223067"},
+    "BEV with PV": {"bg": "#E4E4E4", "border": "#223067"},
     "FCEV": {"bg": "#E4E4E4", "border": "#223067"},
     "FCEV with PV": {"bg": "#E4E4E4", "border": "#223067"}
 }
@@ -415,7 +416,7 @@ else:
             
                     years = input_with_tooltip(
                         "Years", "Vehicle lifetime.",
-                        st.number_input, "", min_value=0, key=f"years_{category}")
+                        st.slider, "", 1, 20, key=f"years_{category}")
                     if years <= 0:
                         st.markdown("""
                                     <div style='color:red; font-size:14px; margin-top:-10px; margin-bottom:-5px;'>
@@ -617,4 +618,5 @@ if 'ultima_moeda' not in st.session_state:
 
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
+
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")
