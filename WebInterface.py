@@ -71,12 +71,13 @@ with tabs[1]:
     st.markdown('''UF:
                 This field allows you to select the Brazilian federative unit (state) to include regional variables such as fuel price and IPVA tax rate in the analysis. 
                 ''')
-    st.image('Side-bar111.png')
+    st.image('Side-bar11.png')
     st.markdown('''Battery Capacity:  
                 This field represents the battery capacity of the electric vehicle.  
                 A default value for this parameter is also available in our database.   
                 ''')
     st.image('Side-bar12.png')
+
 
 
 
