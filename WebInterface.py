@@ -42,7 +42,7 @@ with tabs[1]:
                 For BEV (Battery Electric Vehicle), the available options are **BEV** and **BEV with PV** (photovoltaic system).  
                 For FCEV (Fuel Cell Electric Vehicle), the options are **FCEV** and **FCEV with PV**.  
                 ''')
-    st.image('Side-bar5.png', width=30)
+    st.image('Side-bar5.png', width=500)
     st.markdown('''**Category**:  
                 In this field, you can select the vehicle category or a specific model to be analyzed.  
                 The generic categories (Compact, Sub-compact, Large, etc.) contain average information about the vehicles in our database that belong to each category.  
@@ -77,6 +77,7 @@ with tabs[1]:
                 A default value for this parameter is also available in our database.   
                 ''')
     st.image('Side-bar12.png')
+
 
 
 
