@@ -117,16 +117,17 @@ with tabs[3]:
     st.image('Results4.png', width=600)
     st.markdown('''Next to the charts, the numerical results for GHG, GHG/km, TCO, and LCOD are displayed. Each result includes a tooltip providing a brief explanation of its meaning. 
                 ''')
-    st.image('Results5.png', width=300)
+    st.image('Results5.png', width=200)
     st.markdown('''The numerical values used in the calculations can be checked in the collapsible table located just below the results section.
                 ''')
-    st.image('Results6.png', width=600)
+    st.image('Results6.png', width=800)
     st.markdown('''**Comparison – Charts and Output Data**  
                 In the comparison mode, the results are displayed immediately below the input form, followed by the charts. Both follow the same logic as the individual vehicle results.  
                 The main difference lies in how the data and charts are presented.  
                 Each vehicle category is represented as a line with a distinct color in the chart, with a corresponding label in the legend next to it.  
                 To filter the results, simply click on the legend to toggle the visibility of the respective line in both charts.
                 ''')
+
 
 
 
