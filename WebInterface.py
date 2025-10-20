@@ -102,26 +102,31 @@ with tabs[3]:
                 ''')
     st.image('Results1.png')
     st.markdown('''The container that displays the charts is organized as a tab component, which includes both the emissions chart and the accumulated TCO chart.   
-                Each chart is properly titled, and it is possible to switch between them by clicking the corresponding tab at the top of the container.  
-                The emissions chart starts at year 0, which represents only the production emissions, and extends up to the selected analysis year.
+                Each chart is properly titled, and it is possible to switch between them by clicking the corresponding tab at the top of the container.
+                ''')
+    st.image('Results2.png')        
+    st.markdown('''The emissions chart starts at year 0, which represents only the production emissions, and extends up to the selected analysis year.
                 The curve grows over time until the last year, where it either decreases or flattens due to the applied recycling process (as detailed in Docs – Model Overview).  
                 For BEV and FCEV, a noticeable jump appears on the curve at a certain point, representing the replacement of the battery or fuel cell.
                 ''')
-    st.image('Results2.png')
+    st.image('Results3.png')
     st.markdown('''The TCO chart, in turn, starts its index at year 1 and extends to the final year, showing a flattening and decline toward the end.  
                 Similarly, for BEV and FCEV, a jump occurs at a given year (depending on vehicle lifetime, annual mileage, and driving range), representing the replacement of the battery or fuel cell.  
                 ''')
-    st.image('Results3.png')
-    st.markdown('''Next to the charts, the numerical results for GHG, GHG/km, TCO, and LCOD are displayed. Each result includes a tooltip providing a brief explanation of its meaning.  
-                The numerical values used in the calculations can be checked in the collapsible table located just below the results section.
-                ''')
     st.image('Results4.png')
+    st.markdown('''Next to the charts, the numerical results for GHG, GHG/km, TCO, and LCOD are displayed. Each result includes a tooltip providing a brief explanation of its meaning. 
+                ''')
+    st.image('Results5.png')
+    st.markdown('''The numerical values used in the calculations can be checked in the collapsible table located just below the results section.
+                ''')
+    st.image('Results6.png')
     st.markdown('''**Comparison – Charts and Output Data**  
                 In the comparison mode, the results are displayed immediately below the input form, followed by the charts. Both follow the same logic as the individual vehicle results.  
                 The main difference lies in how the data and charts are presented.  
                 Each vehicle category is represented as a line with a distinct color in the chart, with a corresponding label in the legend next to it.  
                 To filter the results, simply click on the legend to toggle the visibility of the respective line in both charts.
                 ''')
+
 
 
 
