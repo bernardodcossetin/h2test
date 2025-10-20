@@ -16,10 +16,7 @@ st.markdown("""
             display: none !important;
         }
         
-        [data-testid="collapsedControl"] {
-            visibility: visible !important;
-            display: block !important;
-        }
+        
     </style>
 """, unsafe_allow_html=True)
 st.markdown(
@@ -59,6 +56,7 @@ pg = st.navigation(pages)
 
 
 pg.run()
+
 
 
 
