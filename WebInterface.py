@@ -86,7 +86,7 @@ with tabs[2]:
     st.markdown(''' In addition, since the purpose of this page is to compare multiple vehicles, the selected currency applies to all values across all vehicles.  
                 In the sidebar, the selected vehicle categories must be chosen, as well as the currency to be used in the analysis.
                 ''')
-    st.image('Comparison2.png',width=300)
+    st.image('Comparison2.png',width=600)
     st.markdown('''The comparison function offers multiple possibilities to compare different vehicle types with different fuel options. The usage and data entry process are essentially the same as in the individual analysis pages.  
                 The main difference lies in how the forms are arranged on the screen. 
                 ''')
@@ -96,6 +96,7 @@ with tabs[2]:
                 Once all required fields are completed, the “Apply” button becomes available, allowing the results to be displayed.
                 ''')
     
+
 
 
 
