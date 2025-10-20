@@ -9,16 +9,7 @@ def get_base64_image(image_path):
 img_base64 = get_base64_image("LEPTEN.png")
 
 st.set_page_config(layout='wide')
-st.markdown("""
-    <style>
-        
-        [data-testid="stToolbar"] button[kind="icon"] {
-            display: none !important;
-        }
-        
-        
-    </style>
-""", unsafe_allow_html=True)
+
 st.markdown(
     f"""
     <style>
