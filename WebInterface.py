@@ -106,7 +106,7 @@ with tabs[3]:
                 Each chart is properly titled, and it is possible to switch between them by clicking the corresponding tab at the top of the container.
                 ''')
     st.image('Results2.png', width=700)        
-    st.markdown('''The emissions chart starts at year 0, which represents only the production emissions, and extends up to the selected analysis year.
+    st.markdown('''The emissions chart starts at year 0, which represents only the production emissions, and extends up to the selected analysis year.  
                 The curve grows over time until the last year, where it either decreases or flattens due to the applied recycling process (as detailed in Docs – Model Overview).  
                 For BEV and FCEV, a noticeable jump appears on the curve at a certain point, representing the replacement of the battery or fuel cell.
                 ''')
@@ -127,6 +127,7 @@ with tabs[3]:
                 Each vehicle category is represented as a line with a distinct color in the chart, with a corresponding label in the legend next to it.  
                 To filter the results, simply click on the legend to toggle the visibility of the respective line in both charts.
                 ''')
+
 
 
 
