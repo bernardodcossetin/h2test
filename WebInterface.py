@@ -80,10 +80,23 @@ with tabs[1]:
 
 with tabs[2]:
     st.markdown('''When the comparison page is opened, a message appears on the screen indicating the usage condition of the tool: it can only be used  
-                when at least two vehicle types are selected from the options available in the sidebar.  
-                The comparison function offers multiple possibilities to compare different vehicle types with different fuel options. The usage and data entry process are essentially the same as in the individual analysis pages.  
-                The main difference lies in how the forms are arranged on the screen.  
-                In addition, since the purpose of this page is to compare multiple vehicles, the selected currency applies to all values across all vehicles.''')  
+                when at least two vehicle types are selected from the options available in the sidebar.
+                ''')
+    st.image('Comparison1.png')
+    st.markdown(''' In addition, since the purpose of this page is to compare multiple vehicles, the selected currency applies to all values across all vehicles.  
+                In the sidebar, the selected vehicle categories must be chosen, as well as the currency to be used in the analysis.
+                ''')
+    st.image('Comparison2.png')
+    st.markdown('''The comparison function offers multiple possibilities to compare different vehicle types with different fuel options. The usage and data entry process are essentially the same as in the individual analysis pages.  
+                The main difference lies in how the forms are arranged on the screen. 
+                ''')
+    st.image('Comparison3.png')
+    st.markdown('''Here it is possible to compare various parameters, adjusting the input data for each case as desired. In other words,  
+                it is not necessary for all selected vehicles to have the same lifetime, yearly mileage, or other parameters.  
+                Once all required fields are completed, the “Apply” button becomes available, allowing the results to be displayed.
+                ''')
+    
+
 
 
 
