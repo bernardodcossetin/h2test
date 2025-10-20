@@ -11,7 +11,15 @@ img_base64 = get_base64_image("LEPTEN.png")
 st.set_page_config(layout='wide')
 st.markdown("""
     <style>
-        [data-testid="stToolbar"] {visibility: hidden !important;}
+        
+        [data-testid="stToolbar"] button[kind="icon"] {
+            display: none !important;
+        }
+        
+        [data-testid="collapsedControl"] {
+            visibility: visible !important;
+            display: block !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 st.markdown(
@@ -51,6 +59,7 @@ pg = st.navigation(pages)
 
 
 pg.run()
+
 
 
 
