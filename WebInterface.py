@@ -127,6 +127,13 @@ with tabs[3]:
                 Each vehicle category is represented as a line with a distinct color in the chart, with a corresponding label in the legend next to it.  
                 To filter the results, simply click on the legend to toggle the visibility of the respective line in both charts.
                 ''')
+    st.markdown('''In addition, for any chart displayed on the platform, it is possible to switch to full-screen mode simply by clicking the button located above the chart.  
+                Another useful tool for improving visualization—especially in comparison mode—is the zoom-in feature.  
+                By clicking, holding, and dragging over a specific area, that section will be magnified. To return to the original view, simply double-click anywhere on the chart.
+                ''')
+    
+
+
 
 
 
