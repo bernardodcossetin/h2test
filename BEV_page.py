@@ -167,7 +167,7 @@ with st.sidebar.container():
     </div>
     """, unsafe_allow_html=True)
     tipo = st.sidebar.selectbox("", ['BEV'])
-      
+  
 with st.sidebar.container():
     st.markdown("""
     <div style='font-size:16px; font-weight:bold; display:flex; align-items:center; gap:6px; margin-bottom:-25px;'>
@@ -427,3 +427,4 @@ if exchange == 'USD($)':
 
     
     
+
