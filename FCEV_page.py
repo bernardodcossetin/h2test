@@ -29,19 +29,17 @@ def get_ipva_and_fuel_price(df, uf, dolar, exchange, tipo):
     return al, fp
 
 def dolar_ptax():
-    hoje = datetime.today()
-    for dias_atras in range(0, 7):
-        data = hoje - timedelta(days=dias_atras)
-        data_str = data.strftime("%m-%d-%Y")  
-        url = (
+    data = datetime.today()
+    data_str = data.strftime("%m-%d-%Y")  
+    url = (
             "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
             f"CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{data_str}'&$format=json"
         )
-        r = requests.get(url)
-        r.raise_for_status()
-        dados = r.json()
-        if dados.get("value"):
-            return dados["value"][0]["cotacaoVenda"]
+    r = requests.get(url)
+    r.raise_for_status()
+    dados = r.json()
+    if dados.get("value"):
+        return dados["value"][0]["cotacaoVenda"]
 
 def display_metrics(result_ghg, result_tco, exchange): 
     def custom_metric(label, value, info=""):
@@ -399,3 +397,4 @@ if 'ultima_moeda' not in st.session_state:
 if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")    
+
