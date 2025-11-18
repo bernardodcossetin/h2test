@@ -27,9 +27,8 @@ def get_ghg_fuel(tipo, uf, df, category):
         return LHV * d * wtw
 
 def dolar_ptax():
-    hoje = datetime.today()
-    for dias_atras in range(0, 7):
-        data = hoje - timedelta(days=dias_atras)
+    
+        data = datetime.today()
         data_str = data.strftime("%m-%d-%Y")  
         url = (
             "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
@@ -687,3 +686,4 @@ if st.session_state.executou:
     if exchange != st.session_state.ultima_moeda:
 
         st.warning("You changed the currency before executing. Please verify the vehicle cost input, if you don't adjust it to match the selected currency, the result may be inaccurate.")
+
