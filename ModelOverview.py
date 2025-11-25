@@ -5,7 +5,9 @@ st.title("Model Overview")
 st.markdown(''' This section provides a general explanation of the computational model used, aiming to clarify the notations, data sources, input fields, where the data comes from, and how the model operates.  
             It is important to note that this explanation is based on a generic version of the model for illustrative purposes. For deeper understanding and complete technical details, we invite users to visit our repository.  
             Contrary to how information is displayed on the website, the following diagram illustrates how the input data is requested from the user, showing which parameters are needed to operate the tool. 
-            **The abbreviations stand for:** 
+            ''')
+
+st.markdown('''**The abbreviations stand for:** 
                   
              • al = IPVA tax rate   
              • uf = federative unit (state) of Brazil  
@@ -86,6 +88,7 @@ with col2:
     
         return [np.array(GHG),np.array(GHG_km),ghg_accumulated]'''
     st.code(code, language="python")
+
 
 
 
