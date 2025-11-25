@@ -9,17 +9,17 @@ st.markdown(''' This section provides a general explanation of the computational
 
 st.markdown('''**The abbreviations stand for:** 
                   
-            • al = IPVA tax rate   
-            • uf = federative unit (state) of Brazil  
-            • fp = fuel price   
-            • tf = electricity tariff   
-            • dr = average annual vehicle depreciation rate   
-            • r = discount rate    
-            • ins = percentage of the vehicle’s assessed value corresponding to the insurance cost   
-            • GHG = life-cycle cumulative emissions  
-            • GHG_km = emissions normalized per kilometer driven over the years  
-            • TCO = total cost of ownership  
-            • LCOD = levelized cost of driving
+• al = IPVA tax rate   
+• uf = federative unit (state) of Brazil  
+• fp = fuel price   
+• tf = electricity tariff   
+• dr = average annual vehicle depreciation rate   
+• r = discount rate    
+• ins = percentage of the vehicle’s assessed value corresponding to the insurance cost   
+• GHG = life-cycle cumulative emissions  
+• GHG_km = emissions normalized per kilometer driven over the years  
+• TCO = total cost of ownership  
+• LCOD = levelized cost of driving
             ''')
 
 st.markdown('''**The code requires the following data:**
@@ -88,6 +88,7 @@ with col2:
     
         return [np.array(GHG),np.array(GHG_km),ghg_accumulated]'''
     st.code(code, language="python")
+
 
 
 
